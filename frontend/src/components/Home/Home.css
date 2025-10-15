@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .landing-page {
-  background-color: #1B1F24;
+  background-color: #1b1f24;
   color: white;
   font-family: sans-serif;
   min-height: 100vh;
@@ -19,10 +19,16 @@
 
 .header {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #4B5563; 
+  border-bottom: 1px solid #4b5563;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-list {
@@ -35,7 +41,7 @@
 }
 
 .nav-item {
-  background-color: #F9B64D;
+  background-color: #f9b64d;
   color: black;
   padding: 8px 16px;
   border-radius: 8px;
@@ -55,7 +61,7 @@
 }
 
 .nav-item:hover {
-  background-color: #FBBF24;
+  background-color: #fbbf24;
 }
 
 .hero-section {
@@ -67,7 +73,7 @@
   gap: 32px;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .hero-section {
     flex-direction: row;
   }
@@ -85,13 +91,13 @@
 }
 
 .hero-text p {
-  color: #D1D5DB; 
+  color: #d1d5db;
   font-size: 1.125rem;
   margin-bottom: 24px;
 }
 
 .btn-primary {
-  background-color: #F9B64D;
+  background-color: #f9b64d;
   color: black;
   padding: 12px 24px;
   font-weight: 600;
@@ -102,12 +108,12 @@
 }
 
 .btn-primary:hover {
-  background-color: #FBBF24; 
+  background-color: #fbbf24;
 }
 
 .hero-image img {
   border-radius: 24px;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   max-width: 100%;
   height: auto;
 }
@@ -135,7 +141,7 @@
 
 .image-quote-pair img {
   border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   width: 400px;
   height: 300px;
   object-fit: cover;
@@ -143,11 +149,11 @@
 
 .quote-content {
   flex: 1;
-  color: #D1D5DB;
+  color: #d1d5db;
 }
 
 .quote-content h3 {
-  color: #F9B64D;
+  color: #f9b64d;
   font-size: 1.8rem;
   margin-bottom: 16px;
 }
@@ -157,7 +163,7 @@
   line-height: 1.6;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .image-quote-pair,
   .image-quote-pair:nth-child(even) {
     flex-direction: column;
@@ -182,7 +188,7 @@
 }
 
 .call-to-action p {
-  color: #D1D5DB;
+  color: #d1d5db;
   font-size: 1.125rem;
   max-width: 768px;
   margin: 0 auto 32px auto;
@@ -190,8 +196,8 @@
 
 .footer {
   text-align: center;
-  color: #9CA3AF; 
+  color: #9ca3af;
   padding: 24px 0;
-  border-top: 1px solid #4B5563;
+  border-top: 1px solid #4b5563;
   font-size: 0.875rem;
 }
