@@ -6,10 +6,11 @@
     "frontend",
     "backend"
   ],
-  "scripts": {
+ "scripts": {
     "start:frontend": "npm --workspace frontend start",
     "start:backend": "npm --workspace backend start",
-    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "build": "npm --workspace frontend run build"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
@@ -31,3 +32,4 @@
     "tailwindcss": "^3.4.17"
   }
 }
+
