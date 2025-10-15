@@ -35,6 +35,31 @@ service-sliced architecture that keeps shared concerns simple:
   (like missing JWT secrets) from blocking logins. This also aligns with the roadmap to split services without duplicating
   secret-distribution logic.
 
+  # Findings Review & Additional Suggestions
+
+## Login Failure Diagnosis
+- **Observation:** Registration succeeds, but login always returns an error.
+- **Root Cause (confirmed):** When `JWT_SECRET` is unset, the previous implementation rejected every login attempt with the error `"JWT secret not configured"`.
+- **Resolution to be Applied:** Introduce a `resolveJwtSecret` helper that falls back to a scoped development secret in non-production environments while still enforcing a hard failure in production. This unblocks local testing and highlights the missing configuration through a console warning.
+
+## High-Priority Architecture Improvement
+- Externalise all sensitive configuration (MongoDB URI, JWT secret, Moralis API key, AI provider key) into a secrets manager or environment broker.
+- Benefits:
+  - Eliminates the class of login/configuration failures discovered above.
+  - Simplifies future migration to the proposed API gateway + service-sliced architecture because each service can request secrets from a single authority.
+  - Improves incident response by enabling secret rotation without redeploying every service.
+
+## Additional Suggestions
+- Document required environment variables explicitly in the root README (done) and provide an `.env.example`
+- Add a health-check endpoint that validates database connectivity and secret availability; surface its status on the React dashboard to catch misconfiguration earlier.
+- **Wallet address UX hardening (validated):** Replace manual address entry in the `/report` flow with read-only, checksummed
+  values sourced from the connected wallet provider. Render both the canonical string and a QR code so users can scan the
+  destination from another device without relying on copy/paste. This addresses the user's finding about clipboard-swap and
+  DOM-injection attacks, and materially reduces the risk of typos leading to incorrect reports. For Ethereum this can ship
+  immediately because we already capture the MetaMask account in the React state. Bitcoin support requires a multi-chain
+  connector because MetaMask cannot expose native BTC accounts; adopting a wallet such as Trust Wallet via WalletConnect v2
+  would unlock BTC + ETH retrieval through a unified interface and align with the roadmap to expand multi-chain analytics.(implemented, refer to diagrams attached- "banking-expert\banking-expert diagrams\walletautopopulates10.png"
+
 ✅ **Current Features**
 - 🟢 Base Express server running
 - 🟢 Modular services
@@ -85,6 +110,7 @@ npm run dev
 
 ## 📄 License
 MIT License
+
 
 
 
