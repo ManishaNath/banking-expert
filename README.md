@@ -17,7 +17,7 @@ The system uses a modular monolith architecture — clear separation of services
 ![Diagram](readmeFiles/Diagram.png)
 
 ## 🔧 Architecture Improvement Proposal
-Building on the current modular monolith (see diagram above), we can future-proof the platform by incrementally introducing a
+Building on the current modular monolith, we can future-proof the platform by incrementally introducing a
 service-sliced architecture that keeps shared concerns simple:
 
 - **API Gateway Facade:** Introduce a thin gateway in front of the Express server to aggregate responses from the AI, auth,
@@ -85,6 +85,7 @@ npm run dev
 
 ## 📄 License
 MIT License
+
 
 
 
